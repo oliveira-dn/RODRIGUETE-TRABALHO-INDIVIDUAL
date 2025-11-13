@@ -18,7 +18,7 @@ body {
   font-family: 'Segoe UI', Tahoma, sans-serif;
   background-color: var(--bg);
   color: var(--text);
-  transition: background 0.4s, color 0.4s;
+  transition: background-color 0.4s, color 0.4s; /* Alterei para 'background-color' para a transição suave */
 }
 
 /* ====== BOOT ====== */
@@ -58,17 +58,17 @@ body {
 .oculto { display: none; }
 
 @keyframes fadeIn {
-  from {opacity: 0; transform: scale(0.9);}
-  to {opacity: 1; transform: scale(1);}
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
 }
 
 @keyframes loadBar {
-  from {width: 0;}
-  to {width: 200px;}
+  from { width: 0; }
+  to { width: 200px; }
 }
 
 @keyframes fadeOut {
-  to {opacity: 0; visibility: hidden;}
+  to { opacity: 0; visibility: hidden; }
 }
 
 /* ====== CABEÇALHO E NAVEGAÇÃO ====== */
@@ -120,8 +120,14 @@ main {
   padding: 20px;
 }
 
-section { display: none; animation: fadeIn 0.5s; }
-section.active { display: block; }
+section {
+  display: none;
+  animation: fadeIn 0.5s;
+}
+
+section.active {
+  display: block;
+}
 
 /* ====== CARROSSEL ====== */
 .carrossel {

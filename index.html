@@ -1,111 +1,66 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PlayStation 2 - O Clássico Imortal</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Site sobre o PlayStation 2">
+    <title>PlayStation 2 - O console clássico</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="light">
+    <!-- Animação de Boot -->
+    <div id="boot">
+        <div class="boot-logo">PS2</div>
+        <div class="boot-bar"></div>
+    </div>
 
-  <!-- ====== TELA DE BOOT ====== -->
-  <div id="boot">
-    <div class="boot-logo">PlayStation 2</div>
-    <div class="boot-bar"></div>
-  </div>
-
-  <!-- ====== CONTEÚDO DO SITE ====== -->
-  <div id="site" class="oculto">
+    <!-- Cabeçalho -->
     <header>
-      <h1>PlayStation 2 - O Clássico Imortal</h1>
-      <button id="modo-btn">🌙 Modo Claro</button>
+        <h1>PlayStation 2</h1>
+        <button id="modo-btn">Modo Escuro</button>
     </header>
 
+    <!-- Navegação -->
     <nav>
-      <a href="#" class="active" data-section="home">Início</a>
-      <a href="#" data-section="historia">História</a>
-      <a href="#" data-section="jogos">Jogos</a>
-      <a href="#" data-section="curiosidades">Curiosidades</a>
-      <a href="#" data-section="contato">Contato</a>
+        <a href="#home" class="active">Início</a>
+        <a href="#history">História</a>
+        <a href="#games">Jogos</a>
+        <a href="#accessories">Acessórios</a>
     </nav>
 
+    <!-- Conteúdo -->
     <main>
-      <!-- ====== INÍCIO ====== -->
-      <section id="home" class="active">
-        <h2>Bem-vindo ao mundo do PlayStation 2</h2>
-        <p>O <strong>PlayStation 2</strong> (PS2) é um dos consoles mais icônicos da história dos videogames. 
-        Lançado em março de 2000, ele marcou gerações com seus jogos inesquecíveis e design elegante.</p>
-        <img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fpt.wikipedia.org%2Fwiki%2FPlayStation_2&psig=AOvVaw0IZZmWdFK4tKmaNhhnAAZ_&ust=1763134652357000&source=images&cd=vfe&opi=89978449&ved=0CBUQjRxqFwoTCPCm1cW675ADFQAAAAAdAAAAABAE" alt="PlayStation 2">
-      </section>
-
-      <!-- ====== HISTÓRIA ====== -->
-      <section id="historia">
-        <h2>História do PlayStation 2</h2>
-        <p>Lançado em 2000, o PS2 revolucionou o entretenimento digital. Compatível com jogos do PS1 e DVDs, 
-        tornou-se o console mais vendido da história, com mais de <strong>155 milhões de unidades</strong>.</p>
-      </section>
-
-      <!-- ====== JOGOS ====== -->
-      <section id="jogos">
-        <h2>Jogos Clássicos do PS2</h2>
-        <p>Confira alguns dos títulos mais marcantes:</p>
-
-        <div class="carrossel">
-          <div class="slides">
-            <div class="slide ativo">
-              <img src="https://upload.wikimedia.org/wikipedia/en/c/c4/GTA_San_Andreas_cover.png" alt="GTA San Andreas">
-              <span>GTA: San Andreas</span>
-            </div>
-            <div class="slide">
-              <img src="https://upload.wikimedia.org/wikipedia/en/a/ad/God_of_War_II_cover.jpg" alt="God of War II">
-              <span>God of War II</span>
-            </div>
-            <div class="slide">
-              <img src="https://upload.wikimedia.org/wikipedia/en/8/82/Shadow_of_the_Colossus_Cover.jpg" alt="Shadow of the Colossus">
-              <span>Shadow of the Colossus</span>
-            </div>
-            <div class="slide">
-              <img src="https://upload.wikimedia.org/wikipedia/en/1/1c/Metal_Gear_Solid_3_Coverart.png" alt="MGS3">
-              <span>Metal Gear Solid 3</span>
-            </div>
-          </div>
-          <button id="prev">&#10094;</button>
-          <button id="next">&#10095;</button>
-        </div>
-      </section>
-
-      <!-- ====== CURIOSIDADES ====== -->
-      <section id="curiosidades">
-        <h2>Curiosidades</h2>
-        <ul>
-          <li>🎬 O PS2 podia reproduzir DVDs — algo revolucionário na época.</li>
-          <li>🌍 Foi o primeiro console a ultrapassar 150 milhões de unidades vendidas.</li>
-          <li>💾 Era possível jogar online com adaptadores de rede!</li>
-          <li>🎨 O design foi inspirado na arquitetura moderna japonesa.</li>
-        </ul>
-      </section>
-
-      <!-- ====== CONTATO ====== -->
-      <section id="contato">
-        <h2>Entre em Contato</h2>
-        <p>Quer compartilhar suas memórias com o PS2? Envie uma mensagem!</p>
-        <form id="form-contato">
-          <label for="nome">Nome:</label>
-          <input type="text" id="nome" required>
-          <label for="mensagem">Mensagem:</label>
-          <textarea id="mensagem" rows="4" required></textarea>
-          <button type="submit">Enviar</button>
-        </form>
-        <p id="resposta"></p>
-      </section>
+        <section id="home" class="active">
+            <h2>Bem-vindo ao PS2</h2>
+            <p>Descubra o legado de um dos consoles mais amados da história dos videogames.</p>
+        </section>
+        <section id="history">
+            <h2>A História do PlayStation 2</h2>
+            <p>Lançado em 2000, o PS2 revolucionou a indústria de videogames com seu poder de processamento e sua vasta biblioteca de jogos.</p>
+        </section>
+        <section id="games">
+            <h2>Jogos Importantes</h2>
+            <ul>
+                <li>Grand Theft Auto: San Andreas</li>
+                <li>Final Fantasy X</li>
+                <li>God of War</li>
+                <li>Gran Turismo 4</li>
+            </ul>
+        </section>
+        <section id="accessories">
+            <h2>Acessórios do PS2</h2>
+            <ul>
+                <li>Controle DualShock 2</li>
+                <li>Memory Card</li>
+                <li>DVD Remote Control</li>
+            </ul>
+        </section>
     </main>
 
     <footer>
-      <p>&copy; 2025 - Fã Site do PlayStation 2 | Criado por DN 🎮</p>
+        <p>&copy; 2025 PS2 Fanpage. Todos os direitos reservados.</p>
     </footer>
-  </div>
 
-  <audio id="somClique" src="https://actions.google.com/sounds/v1/cartoon/pop.ogg"></audio>
-  <script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>

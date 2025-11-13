@@ -1,16 +1,16 @@
 /* ====== CORES ====== */
 :root {
-  bg: #0e0e0e;
-  text: #f4f4f4;
-  accent: #00a2ff;
-  header-bg: #1a1a1a;
+  --bg: #0e0e0e;
+  --text: #f4f4f4;
+  --accent: #00a2ff;
+  --header-bg: #1a1a1a;
 }
 
 body.light {
-  bg: #f4f4f4;
-  text: #111;
-  accent: #0059ff;
-  header-bg: #ddd;
+  --bg: #f4f4f4;
+  --text: #111;
+  --accent: #0059ff;
+  --header-bg: #ddd;
 }
 
 body {

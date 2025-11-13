@@ -1,287 +1,103 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>PS2 Nostalgia — Jogos Clássicos</title>
-  <meta name="description" content="Site de jogos antigos do PS2 — dicas, capas, trailers e nostalgia.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
-  <style>
-    /* Reset básico */
-    *{box-sizing:border-box;margin:0;padding:0}
-    html,body{height:100%}
-    body{
-      font-family: 'Roboto', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
-      background: radial-gradient(ellipse at center, #07122b 0%, #000 60%);
-      color:#eaeaea;
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-      padding:24px;
-    }
-
-    /* Container */
-    .wrap{max-width:1100px;margin:0 auto}
-
-    /* Header / hero */
-    header{
-      display:flex;align-items:center;gap:16px;margin-bottom:22px;
-    }
-    .logo{
-      width:96px;height:96px;border-radius:12px;padding:12px;background:linear-gradient(180deg,#0a1b2f,#031018);box-shadow:0 6px 20px rgba(0,0,0,.6), inset 0 -2px 6px rgba(255,255,255,0.02);
-      display:flex;align-items:center;justify-content:center;flex-direction:column;border:2px solid rgba(255,255,255,0.04)
-    }
-    .logo h1{font-family: 'Press Start 2P', cursive;font-size:11px;line-height:1;color:#bfe3ff;text-shadow:0 2px 6px rgba(0,0,0,.8)}
-    .hero-title{flex:1}
-    .hero-title h2{font-family: 'Press Start 2P', cursive;font-size:28px;margin-bottom:6px;color:#fff}
-    .hero-title p{opacity:.85;color:#cbdff0}
-
-    /* Retro ribbon */
-    .ribbon{margin-top:10px;display:inline-block;background:linear-gradient(90deg,#9b59b6,#2980b9);padding:6px 12px;border-radius:999px;font-weight:700;font-size:12px;color:#fff;letter-spacing:.6px}
-
-    /* Controls */
-    .controls{display:flex;gap:12px;margin:18px 0;flex-wrap:wrap}
-    .search{flex:1;min-width:220px}
-    .search input{width:100%;padding:12px 14px;border-radius:10px;border:1px solid rgba(255,255,255,0.06);background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));color:inherit}
-    .select{padding:12px;border-radius:10px;background:transparent;border:1px solid rgba(255,255,255,0.06);min-width:160px}
-
-    /* Grid */
-    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
-    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.15));border-radius:12px;padding:12px;border:1px solid rgba(255,255,255,0.04);backdrop-filter: blur(4px);position:relative;overflow:hidden}
-    .thumb{height:140px;border-radius:8px;overflow:hidden;background:#111;display:flex;align-items:center;justify-content:center}
-    .thumb img{width:100%;height:100%;object-fit:cover;display:block}
-    .meta{padding:10px 6px}
-    .meta h3{font-size:14px;margin-bottom:6px}
-    .meta p{font-size:12px;opacity:.85}
-    .tags{margin-top:8px;display:flex;gap:8px;flex-wrap:wrap}
-    .tag{font-size:11px;padding:6px 8px;border-radius:999px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.02)}
-
-    /* Play button */
-    .play-btn{position:absolute;right:12px;bottom:12px;padding:10px 12px;border-radius:10px;background:linear-gradient(180deg,#ff5f6d,#ffc371);color:#111;font-weight:700;border:none;cursor:pointer;box-shadow:0 8px 18px rgba(255,99,71,0.12)}
-
-    /* Modal */
-    .overlay{position:fixed;inset:0;background:linear-gradient(180deg, rgba(0,0,0,0.6), rgba(0,0,0,0.85));display:none;align-items:center;justify-content:center;padding:24px;z-index:40}
-    .overlay.open{display:flex}
-    .modal{width:100%;max-width:900px;background:#06121b;padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.04);box-shadow:0 24px 80px rgba(0,0,0,0.8)}
-    .modal-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
-    .modal-body iframe{width:100%;height:480px;border-radius:8px}
-    .close{background:transparent;border:none;color:#fff;font-weight:700;cursor:pointer}
-
-    /* Footer */
-    footer{margin-top:28px;text-align:center;padding:18px;color:#9fb6d1;opacity:.95}
-
-    /* CRT scanlines + vignette */
-    .crt:after{content:"";position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(rgba(0,0,0,0) 48%, rgba(0,0,0,0.06) 50%, rgba(0,0,0,0) 52%);mix-blend-mode:overlay;opacity:0.35}
-
-    /* Small screens */
-    @media (max-width:520px){
-      header{flex-direction:column;align-items:flex-start}
-      .logo{width:74px;height:74px}
-      .hero-title h2{font-size:20px}
-      .modal-body iframe{height:260px}
-    }
-  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PlayStation 2 - O Clássico Imortal</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="wrap">
-    <header>
-      <div class="logo">
-        <h1>PS2</h1>
-        <small style="font-size:10px;color:#9fb6d1;opacity:.9">NOSTALGIA</small>
-      </div>
-      <div class="hero-title">
-        <h2>PS2 Nostalgia</h2>
-        <p>Capas, trailers e curiosidades — revive os clássicos que fizeram história.</p>
-        <div class="ribbon">Drop a memory • 2000s vibes</div>
-      </div>
-    </header>
 
-    <div class="controls">
-      <div class="search">
-        <input id="searchInput" placeholder="Buscar jogo, gênero ou ano...">
-      </div>
-      <select id="genreFilter" class="select">
-        <option value="">Todos os gêneros</option>
-        <option>Action</option>
-        <option>Adventure</option>
-        <option>RPG</option>
-        <option>Horror</option>
-        <option>Plataforma</option>
-      </select>
-      <select id="yearFilter" class="select">
-        <option value="">Todos os anos</option>
-        <option>2000</option>
-        <option>2001</option>
-        <option>2002</option>
-        <option>2003</option>
-        <option>2004</option>
-        <option>2005</option>
-      </select>
-    </div>
+  <header>
+    <h1>PlayStation 2 - O Clássico Imortal</h1>
+    <button id="modo-btn">🌙 Modo Claro</button>
+  </header>
 
-    <main>
-      <section class="grid" id="gamesGrid">
-        <!-- Cards gerados via JS -->
-      </section>
-    </main>
+  <nav>
+    <a href="#" class="active" data-section="home">Início</a>
+    <a href="#" data-section="historia">História</a>
+    <a href="#" data-section="jogos">Jogos</a>
+    <a href="#" data-section="curiosidades">Curiosidades</a>
+    <a href="#" data-section="contato">Contato</a>
+  </nav>
 
-    <footer>
-      <small>Feito com amor pelos pixels • &copy; PS2 Nostalgia</small>
-    </footer>
-  </div>
+  <main>
+    
+    <section id="home" class="active">
+      <h2>Bem-vindo ao mundo do PlayStation 2</h2>
+      <p>O <strong>PlayStation 2</strong> (PS2) é um dos consoles mais icônicos da história dos videogames. 
+      Lançado em março de 2000, ele marcou gerações com seus jogos inesquecíveis, seu design elegante e 
+      uma biblioteca com milhares de títulos incríveis.</p>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/3/3e/PS2-Versions.jpg" alt="PlayStation 2">
+    </section>
 
-  <!-- Modal -->
-  <div id="overlay" class="overlay">
-    <div class="modal">
-      <div class="modal-header">
-        <strong id="modalTitle">Trailer</strong>
-        <button id="closeModal" class="close">FECHAR</button>
-      </div>
-      <div class="modal-body">
-        <iframe id="modalIframe" src="" title="Trailer" frameborder="0" allowfullscreen></iframe>
-      </div>
-    </div>
-  </div>
+   
+    <section id="historia">
+      <h2>História do PlayStation 2</h2>
+      <p>O PS2 foi lançado pela Sony em 4 de março de 2000 no Japão, e mais tarde naquele mesmo ano em outras regiões. 
+      Foi o sucessor do PlayStation original e trouxe grandes inovações, incluindo a retrocompatibilidade com jogos do PS1 
+      e a capacidade de reproduzir DVDs — o que o tornou um sucesso também como centro de entretenimento.</p>
+      <p>Com mais de <strong>155 milhões de unidades vendidas</strong>, o PS2 é até hoje o console mais vendido da história. 
+      Ele teve uma vida útil impressionante, com suporte oficial até 2013.</p>
+    </section>
 
-  <script>
-    // Lista de jogos - sinta-se livre para editar/expandir
-    const games = [
-      {
-        title: 'God of War',
-        year: 2005,
-        genre: 'Action',
-        cover: 'https://images.unsplash.com/photo-1608223887690-0b3e4d8a9d2e?auto=format&fit=crop&w=800&q=60',
-        desc: 'Kratos, mitologia grega e combates épicos — o jogo que redefiniu ação no PS2/PS3.',
-        trailer: 'https://www.youtube.com/embed/0zWf6gq9r6Q'
-      },
-      {
-        title: 'Metal Gear Solid 3: Snake Eater',
-        year: 2004,
-        genre: 'Adventure',
-        cover: 'https://images.unsplash.com/photo-1503602642458-232111445657?auto=format&fit=crop&w=800&q=60',
-        desc: 'Stealth, história e emoções em plena Guerra Fria.',
-        trailer: 'https://www.youtube.com/embed/yTAwGgsD4eI'
-      },
-      {
-        title: 'Final Fantasy X',
-        year: 2001,
-        genre: 'RPG',
-        cover: 'https://images.unsplash.com/photo-1543163521-1bf539f1a3cd?auto=format&fit=crop&w=800&q=60',
-        desc: 'RPG clássico com história emocionante e trilha inesquecível.',
-        trailer: 'https://www.youtube.com/embed/K7Q6b4h2qRA'
-      },
-      {
-        title: 'Shadow of the Colossus',
-        year: 2005,
-        genre: 'Adventure',
-        cover: 'https://images.unsplash.com/photo-1508610048659-a06a6bfb6f6f?auto=format&fit=crop&w=800&q=60',
-        desc: 'Atmosfera única, puzzles gigantes e paisagens melancólicas.',
-        trailer: 'https://www.youtube.com/embed/yt4mHvK1lSg'
-      },
-      {
-        title: 'Silent Hill 2',
-        year: 2001,
-        genre: 'Horror',
-        cover: 'https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=800&q=60',
-        desc: 'Horror psicológico que mexe com as emoções e o medo.',
-        trailer: 'https://www.youtube.com/embed/6xV2dQ2vG6k'
-      }
-    ];
-
-    const grid = document.getElementById('gamesGrid');
-    const searchInput = document.getElementById('searchInput');
-    const genreFilter = document.getElementById('genreFilter');
-    const yearFilter = document.getElementById('yearFilter');
-    const overlay = document.getElementById('overlay');
-    const modalIframe = document.getElementById('modalIframe');
-    const modalTitle = document.getElementById('modalTitle');
-    const closeModal = document.getElementById('closeModal');
-
-    function createCard(game){
-      const card = document.createElement('article');
-      card.className = 'card crt';
-      card.innerHTML = `
-        <div class="thumb">
-          <img src="${game.cover}" alt="Capa ${game.title}">
+   
+    <section id="jogos">
+      <h2>Jogos Clássicos do PS2</h2>
+      <p>Confira alguns dos títulos mais marcantes do console:</p>
+      <div class="galeria">
+        <div class="jogo">
+          <img src="https://upload.wikimedia.org/wikipedia/en/c/c4/GTA_San_Andreas_cover.png" alt="GTA San Andreas">
+          <span>GTA: San Andreas</span>
         </div>
-        <div class="meta">
-          <h3>${game.title} <small style="font-size:10px;color:#9fb6d1;display:block">${game.year}</small></h3>
-          <p>${game.desc}</p>
-          <div class="tags">
-            <span class="tag">${game.genre}</span>
-            <span class="tag">PS2</span>
-          </div>
+        <div class="jogo">
+          <img src="https://upload.wikimedia.org/wikipedia/en/a/ad/God_of_War_II_cover.jpg" alt="God of War II">
+          <span>God of War II</span>
         </div>
-        <button class="play-btn" data-trailer="${game.trailer}" data-title="${game.title}">VER TRAILER</button>
-      `;
-      return card;
-    }
+        <div class="jogo">
+          <img src="https://upload.wikimedia.org/wikipedia/en/8/82/Shadow_of_the_Colossus_Cover.jpg" alt="Shadow of the Colossus">
+          <span>Shadow of the Colossus</span>
+        </div>
+        <div class="jogo">
+          <img src="https://upload.wikimedia.org/wikipedia/en/1/1c/Metal_Gear_Solid_3_Coverart.png" alt="MGS3">
+          <span>Metal Gear Solid 3</span>
+        </div>
+      </div>
+    </section>
 
-    function render(list){
-      grid.innerHTML = '';
-      if(list.length === 0){
-        grid.innerHTML = '<p style="opacity:.8">Nenhum jogo encontrado — tente outro filtro.</p>';
-        return;
-      }
-      list.forEach(g => grid.appendChild(createCard(g)));
-      // attach listeners to play buttons
-      document.querySelectorAll('.play-btn').forEach(btn => {
-        btn.addEventListener('click', (e) => {
-          const url = e.currentTarget.getAttribute('data-trailer');
-          const title = e.currentTarget.getAttribute('data-title');
-          openModal(title, url);
-        });
-      });
-    }
+   
+    <section id="curiosidades">
+      <h2>Curiosidades</h2>
+      <ul>
+        <li>🎬 O PS2 podia reproduzir DVDs — algo revolucionário na época.</li>
+        <li>🌍 Foi o primeiro console a ultrapassar 150 milhões de unidades vendidas.</li>
+        <li>🧠 Muitos dos jogos do PS2 são estudados até hoje por designers e programadores.</li>
+        <li>💾 Era possível usar adaptadores para jogar online!</li>
+        <li>🎨 O design do PS2 foi inspirado em arquitetura moderna japonesa.</li>
+      </ul>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/2/24/Sony-PlayStation-2-Console-FL.jpg" alt="Console PS2">
+    </section>
 
-    function openModal(title, url){
-      modalTitle.textContent = title + ' — Trailer';
-      // adiciona autoplay params se for YouTube
-      if(url.includes('youtube')) modalIframe.src = url + '?autoplay=1&rel=0'; else modalIframe.src = url;
-      overlay.classList.add('open');
-    }
-    function closeModalFn(){
-      modalIframe.src = '';
-      overlay.classList.remove('open');
-    }
+    
+    <section id="contato">
+      <h2>Entre em Contato</h2>
+      <p>Quer compartilhar suas memórias com o PS2? Envie uma mensagem!</p>
+      <form id="form-contato">
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" name="nome" required>
+        <label for="mensagem">Mensagem:</label>
+        <textarea id="mensagem" name="mensagem" rows="4" required></textarea>
+        <button type="submit">Enviar</button>
+      </form>
+      <p id="resposta" style="margin-top:10px;"></p>
+    </section>
+  </main>
 
-    // filtros simples
-    function applyFilters(){
-      const q = searchInput.value.toLowerCase();
-      const genre = genreFilter.value;
-      const year = yearFilter.value;
-      const filtered = games.filter(g => {
-        const matchQ = q === '' || g.title.toLowerCase().includes(q) || g.desc.toLowerCase().includes(q) || g.genre.toLowerCase().includes(q);
-        const matchGenre = genre === '' || g.genre === genre;
-        const matchYear = year === '' || String(g.year) === year;
-        return matchQ && matchGenre && matchYear;
-      });
-      render(filtered);
-    }
+  <footer>
+    <p>&copy; 2025 - Fã Site do PlayStation 2 | Criado por Você 🎮</p>
+  </footer>
 
-    // eventos
-    searchInput.addEventListener('input', applyFilters);
-    genreFilter.addEventListener('change', applyFilters);
-    yearFilter.addEventListener('change', applyFilters);
-    closeModal.addEventListener('click', closeModalFn);
-    overlay.addEventListener('click', (e) => { if(e.target === overlay) closeModalFn(); });
-
-    // render inicial
-    render(games);
-
-    // easter egg: pressione Konami (simples)
-    const konami = [38,38,40,40,37,39,37,39,66,65];
-    let kPos = 0;
-    window.addEventListener('keydown', e => {
-      if(e.keyCode === konami[kPos]){
-        kPos++;
-        if(kPos === konami.length){
-          alert('Cheat code ativado! Relembre os clássicos.');
-          kPos = 0;
-        }
-      } else kPos = 0;
-    });
-  </script>
+  <audio id="somClique" src="https://actions.google.com/sounds/v1/cartoon/pop.ogg"></audio>
+  <script src="script.js"></script>
 </body>
 </html>

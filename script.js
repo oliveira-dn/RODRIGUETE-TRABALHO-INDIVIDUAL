@@ -1,83 +1,30 @@
-// ====== BOOT ======
-window.addEventListener("load", () => {
-  const boot = document.getElementById("boot");
-  const site = document.getElementById("site");
-
-  // Mostra o site após a animação de boot
-  setTimeout(() => {
-    boot.style.display = "none";
-    site.classList.remove("oculto");
-  }, 5500);
+// Alternar entre o modo claro e escuro
+const modoBtn = document.getElementById('modo-btn');
+modoBtn.addEventListener('click', () => {
+    document.body.classList.toggle('light');
+    modoBtn.textContent = document.body.classList.contains('light') ? 'Modo Escuro' : 'Modo Claro';
 });
 
-// ====== NAVEGAÇÃO ======
-const links = document.querySelectorAll("nav a");
-const sections = document.querySelectorAll("section");
-const somClique = document.getElementById("somClique");
+// Animação de Boot
+window.addEventListener('load', () => {
+    const boot = document.getElementById('boot');
+    setTimeout(() => {
+        boot.style.display = 'none'; // Esconde a animação após o carregamento
+    }, 5000); // Duração total da animação (boot + fadeOut)
+});
 
+// Navegação entre as seções
+const links = document.querySelectorAll('nav a');
 links.forEach(link => {
-  link.addEventListener("click", e => {
-    e.preventDefault();
-    somClique.play();
+    link.addEventListener('click', (e) => {
+        e.preventDefault();
+        links.forEach(link => link.classList.remove('active'));
+        e.target.classList.add('active');
 
-    links.forEach(l => l.classList.remove("active"));
-    sections.forEach(sec => sec.classList.remove("active"));
-
-    link.classList.add("active");
-    const target = link.getAttribute("data-section");
-    document.getElementById(target).classList.add("active");
-  });
+        const sectionId = e.target.getAttribute('href').substring(1);
+        document.querySelectorAll('main section').forEach(section => {
+            section.classList.remove('active');
+        });
+        document.getElementById(sectionId).classList.add('active');
+    });
 });
-
-// ====== MODO ESCURO/CLARO ======
-const modoBtn = document.getElementById("modo-btn");
-modoBtn.addEventListener("click", () => {
-  document.body.classList.toggle("light");
-  somClique.play();
-  modoBtn.textContent = document.body.classList.contains("light") ? "🌑 Modo Escuro" : "🌙 Modo Claro";
-});
-
-// ====== FORMULÁRIO ======
-const form = document.getElementById("form-contato");
-const resposta = document.getElementById("resposta");
-
-form.addEventListener("submit", e => {
-  e.preventDefault();
-  const nome = document.getElementById("nome").value.trim();
-  const msg = document.getElementById("mensagem").value.trim();
-  if (nome && msg) {
-    resposta.textContent = `Obrigado, ${nome}! Sua mensagem foi enviada com sucesso. 🎮`;
-    somClique.play();
-    form.reset();
-  } else {
-    resposta.textContent = "Por favor, preencha todos os campos.";
-  }
-});
-
-// ====== CARROSSEL DE JOGOS ======
-const slides = document.querySelectorAll(".slide");
-const next = document.getElementById("next");
-const prev = document.getElementById("prev");
-let index = 0;
-
-function showSlide(i) {
-  slides.forEach((s, n) => {
-    s.classList.toggle("ativo", n === i);
-  });
-}
-
-function nextSlide() {
-  index = (index + 1) % slides.length;
-  showSlide(index);
-}
-
-function prevSlide() {
-  index = (index - 1 + slides.length) % slides.length;
-  showSlide(index);
-}
-
-next.addEventListener("click", () => { somClique.play(); nextSlide(); });
-prev.addEventListener("click", () => { somClique.play(); prevSlide(); });
-
-// Auto-avança a cada 4s
-setInterval(nextSlide, 4000);

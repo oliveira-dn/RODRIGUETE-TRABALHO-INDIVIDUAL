@@ -5,24 +5,54 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PS2 Boot</title>
     <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* Tela de clique obrigatório (navegadores exigem interação) */
+        #start-screen {
+            position: fixed;
+            inset: 0;
+            background: #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+            z-index: 9999;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
 
-<div id="boot-screen">
+<!-- Tela de clique -->
+<div id="start-screen">Clique para iniciar</div>
+
+<!-- Tela de boot -->
+<div id="boot-screen" style="display:none;">
     <div class="boot-lines"></div>
     <h1 class="boot-logo">PlayStation 2</h1>
 </div>
 
-    <audio autoplay>
-        <source src="boot.mp3" type="audio/mpeg"
+<!-- Áudio -->
+<audio id="bootAudio" src="boot.mp3"></audio>
 
 <script>
-setTimeout(() => {
-    window.location.href = "menu.html";
-}, 5000);
+const start = document.getElementById("start-screen");
+const boot = document.getElementById("boot-screen");
+const audio = document.getElementById("bootAudio");
+
+start.addEventListener("click", () => {
+    start.style.display = "none";  // some com a tela de clique
+    boot.style.display = "block";  // mostra o boot
+
+    audio.play(); // inicia o boot.mp3
+
+    // depois de 5s manda pro menu
+    setTimeout(() => {
+        window.location.href = "menu.html";
+    }, 5000);
+});
 </script>
 
 </body>
-
 </html>
-

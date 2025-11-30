@@ -1,0 +1,136 @@
+/* ------------------------- */
+/* BOOT SCREEN */
+/* ------------------------- */
+body {
+    margin: 0;
+    background: black;
+    color: white;
+    font-family: Arial;
+}
+
+/* Boot */
+#boot-screen {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    animation: fadeOut 2s ease-out 4s forwards;
+}
+
+.boot-lines {
+    width: 150px;
+    height: 150px;
+    border: 2px solid #3b6bd8;
+    animation: rotateBox 4s ease-in-out;
+}
+
+.boot-logo {
+    margin-top: 20px;
+    font-size: 3rem;
+    color: #3b6bd8;
+    opacity: 0;
+    animation: logoFade 3s forwards;
+}
+
+@keyframes rotateBox {
+    0% { transform: rotate(0deg); opacity: 0; }
+    25% { opacity: 1; }
+    100% { transform: rotate(360deg); opacity: 0; }
+}
+
+@keyframes logoFade {
+    0% { opacity: 0; transform: scale(0.7); }
+    100% { opacity: 1; transform: scale(1); }
+}
+
+@keyframes fadeOut {
+    to { opacity: 0; visibility: hidden; }
+}
+
+/* ------------------------- */
+/* MENU PS2 */
+/* ------------------------- */
+.menu-bg {
+    width: 100%;
+    height: 100vh;
+    background: url("assets/fundo-cubos.png");
+    background-size: cover;
+    filter: brightness(0.5);
+    position: fixed;
+    z-index: -1;
+    animation: floatBG 20s infinite linear;
+}
+
+@keyframes floatBG {
+    from { background-position: 0 0; }
+    to { background-position: 1000px 1000px; }
+}
+
+/* Menu grid */
+.menu-container {
+    text-align: center;
+    padding-top: 80px;
+}
+
+.menu-title {
+    font-size: 2.5rem;
+    color: #3b6bd8;
+    margin-bottom: 40px;
+}
+
+.menu-options {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.menu-btn {
+    font-size: 1.8rem;
+    color: white;
+    text-decoration: none;
+    background: rgba(0,0,0,0.4);
+    border: 2px solid #3b6bd8;
+    padding: 15px;
+    border-radius: 10px;
+    width: 300px;
+    margin: auto;
+    transition: 0.3s;
+}
+
+.menu-btn:hover {
+    background: #3b6bd8;
+    box-shadow: 0 0 15px #3b6bd8;
+}
+
+/* ------------------------- */
+/* PÁGINAS INTERNAS */
+/* ------------------------- */
+.page-content {
+    padding: 40px;
+}
+
+h1, h2 {
+    color: #3b6bd8;
+}
+
+.jogos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
+    gap: 20px;
+}
+
+.jogo-card {
+    background: #111;
+    border: 1px solid #3b6bd8;
+    padding: 10px;
+    border-radius: 8px;
+    text-align: center;
+}
+.jogo-card img {
+    width: 100%;
+    border-radius: 5px;
+}
